@@ -1,2 +1,2 @@
-# price-checker
+# price-scrapper
 Python web Scrapper that sends mail when there is a price drop
