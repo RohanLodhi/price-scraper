@@ -15,7 +15,7 @@ page = requests.get(URL, headers = headers)
 
 soup = BeautifulSoup(page.content, 'html.parser')
 soup2 = BeautifulSoup(soup.prettify(), 'html.parser')
-title = soup2.find(id="title").get_text()
+title = soup2.find(id="title").get_text().strip()
 price = soup2.find(id="priceblock_ourprice").get_text()
 price = price.strip()
 print(price)
@@ -32,7 +32,7 @@ def send_mail(id, title):
 
     TO = mailId
     subject = 'Price drop noticed!'
-    body = 'A price drop has been detected by our systems on the requested product ', title
+    body = 'A price drop has been detected by our systems on the requested product ' + title
 
     msg = "Subject: {}\n\n{}".format(subject,body) 
 
